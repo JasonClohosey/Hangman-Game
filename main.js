@@ -29,9 +29,11 @@ function getPhrase(randomPhrase) {
 }
 getPhrase();
 
-document.getElementById("submit").addEventListener("click", function (getUserChoice){
-    getUserChoice = document.getElementById("user-choice").nodeValue.toLocaleLowerCase();
-    console.log(getUserChoice);
+document.getElementById("submit").addEventListener("click", function (userChoice){
+    userChoice = document.getElementById("user-choice").value.toLowerCase();
+    log.push(userChoice);
+    console.log(userChoice);
+    console.log("This is the log array", log);
     document.getElementById("user-choice").value = "";
 });
 
