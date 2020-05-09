@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hangman-Game</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="assets/css/media.css">
@@ -17,7 +17,8 @@
     <div id="game">
         <h2 id="phrase"></h2>
         <label for="user-choice" name="type a letter">type a letter</label>
-        <input type="text" id="user-choice" placeholder="Type your letter here">
+        <input type="text" id="user-choice" placeholder="Type your letter here" onfocus="this.value=''">
+        <button type="button" value="Submit" id="btn-submit">Submit Letter</button>
         <div id="used-letters"></div>
     </div>
 

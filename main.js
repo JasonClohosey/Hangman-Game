@@ -13,6 +13,7 @@ var phrases = [
 ];
 
 var log = [];
+
 //function to generate random phrase
 function getPhrase(randomPhrase) {
   randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
@@ -27,3 +28,13 @@ function getPhrase(randomPhrase) {
   // }
 }
 getPhrase();
+
+document.getElementById("submit").addEventListener("click", function (getUserChoice){
+    getUserChoice = document.getElementById("user-choice").nodeValue.toLocaleLowerCase();
+    console.log(getUserChoice);
+    document.getElementById("user-choice").value = "";
+});
+
+
+
+// getUserChoice();
