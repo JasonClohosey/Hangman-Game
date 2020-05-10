@@ -31,8 +31,17 @@ getPhrase();
 
 document.getElementById("submit").addEventListener("click", function (userChoice){
     userChoice = document.getElementById("user-choice").value.toLowerCase();
-    log.push(userChoice);
-    console.log(userChoice);
+    if (log.indexOf(userChoice) === -1) {
+        log.push(userChoice);
+        document.getElementById("used-letters").innerHTML = ("Used Letters: " + log);
+        document.getElementById("already-picked").innerHTML = "";
+        console.log(userChoice);
+        console.log("?")
+    } else {
+        document.getElementById("already-picked").innerHTML = "You already picked that letter, please try again";
+        // alert ("You already picked that letter")
+        console.log("You already picked that letter")
+    };
     console.log("This is the log array", log);
     document.getElementById("user-choice").value = "";
 });
