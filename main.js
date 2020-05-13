@@ -32,7 +32,7 @@ document.getElementById("submit").addEventListener("click", function (userChoice
     userChoice = document.getElementById("user-choice").value.toUpperCase();
     console.log(userChoice);
 
-
+    
     function matchLetters() {
         
         // (log.indexOf(userChoice) === -1)
@@ -86,7 +86,5 @@ document.getElementById("submit").addEventListener("click", function (userChoice
       };   
 
       
+      
 });
-// document.getElementById("user-choice").addEventListener("focus", function () {
-//         document.getElementById("messages").innerHTML = "";
-// });

@@ -16,9 +16,11 @@
 </header>
     <div id="game">
         <h2 id="phrase"></h2>
+        <form action="#">
         <label for="user-choice" name="type a letter">type a letter</label>
-        <input type="text" id="user-choice" placeholder="Type your letter here" onfocus="this.value=''">
-        <button type="button" value="submit" id="submit">Submit Letter</button>
+        <input type="text" id="user-choice" placeholder="Type your letter here" autofocus>
+        <button type="submit" value="submit" id="submit">Submit Letter</button>
+    </form>
         <div id="used-letters">Used Letters: </div>
         <p id="message"></p>
         <p id="guessLetter"></p>
