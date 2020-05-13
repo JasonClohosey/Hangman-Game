@@ -12,7 +12,7 @@ var phrases = [
   "SUPER SPEEDWAY",
 ];
 
-var log = [ ];
+var log = [" "];
 var phraseLog = [];
 var wordStatus = null
 let maxWrong = 6;
