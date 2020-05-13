@@ -1,3 +1,6 @@
 body {
     background-color: rgb(192, 192, 101);
 }
+#hangImg {
+    height: 250px;
+}

@@ -60,7 +60,7 @@ document.getElementById("submit").addEventListener("click", function (userChoice
               maxWrong--;
             log.push(userChoice);
             checkIfGameLost();
-            // updateHangmanPicture();
+            updateHangmanPicture();
             }
             
         }
@@ -70,6 +70,10 @@ document.getElementById("submit").addEventListener("click", function (userChoice
     document.getElementById("used-letters").innerHTML = "Used Letters: " + log.join("");
     console.log("This is the log array", log);
     document.getElementById("user-choice").value = "";
+
+    function updateHangmanPicture() {
+        document.getElementById("hangImg").src = "./assets/images/tower-" + (mistakes +1) + ".png";
+      }
 
     function checkIfGameWon() {
         if (wordStatus === randomPhrase) {
