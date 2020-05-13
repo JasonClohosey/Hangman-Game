@@ -13,6 +13,7 @@ var phrases = [
 ];
 
 var log = [" "];
+var usedLetters = [];
 var phraseLog = [];
 var wordStatus = null
 let maxWrong = 6;
@@ -41,9 +42,10 @@ document.getElementById("submit").addEventListener("click", function (userChoice
                 document.getElementById("message").innerHTML = ("That letter there is a winner!")
                 console.log("Lets run guessWord and checkIfGameWon" + userChoice, randomPhrase);
             log.push(userChoice);
+            // usedLetters.push(userChoice);
             guessedWord();
             checkIfGameWon();
-            }else if (log.indexOf(userChoice >=0) && (randomPhrase.indexOf(userChoice) >= 0)) {
+            }else if (log.indexOf(userChoice) >=0 && (randomPhrase.indexOf(userChoice) >= 0) || (log.indexOf(userChoice) >=0) && (randomPhrase.indexOf(userChoice) === -1)) {
                 document.getElementById("message").innerHTML = ("The definition of insanity is try the same thing twice expecting a different result. Try another letter driver");
             }
             else {
@@ -52,9 +54,11 @@ document.getElementById("submit").addEventListener("click", function (userChoice
             //   mistakes++;
             //   updateMistakes();
             log.push(userChoice);
+            // usedLetters.push(userChoice);
             checkIfGameLost();
             //   updateHangmanPicture();
             }
+            
         }
         matchLetters();
     
@@ -62,13 +66,6 @@ document.getElementById("submit").addEventListener("click", function (userChoice
     document.getElementById("used-letters").innerHTML = "Used Letters: " + log.join("");
     console.log("This is the log array", log);
     document.getElementById("user-choice").value = "";
-    
-    // function usedLetterAlready(){
-    //     if (log.indexOf(userChoice) === -1)
-    // document.getElementById("already-picked").innerHTML = "";
-    // }
-    
-    // usedLetterAlready()
 
     function checkIfGameWon() {
         if (wordStatus === log) {
@@ -88,5 +85,8 @@ document.getElementById("submit").addEventListener("click", function (userChoice
         document.getElementById("phrase").innerHTML = wordStatus;
       };   
 
-
+      
 });
+// document.getElementById("user-choice").addEventListener("focus", function () {
+//         document.getElementById("messages").innerHTML = "";
+// });
