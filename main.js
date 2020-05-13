@@ -33,18 +33,25 @@ document.getElementById("submit").addEventListener("click", function (userChoice
 
 
     function matchLetters() {
-        log.push(userChoice);
+        
         // (log.indexOf(userChoice) === -1)
         // document.getElementById("already-picked").innerHTML = "";
             // log.indexOf(userChoice) === -1 ? log.push(userChoice) : null;
-            if (randomPhrase.indexOf(userChoice) >= 0) {
+            if (log.indexOf(userChoice) === -1 && (randomPhrase.indexOf(userChoice) >= 0)) {
+                document.getElementById("message").innerHTML = ("That letter there is a winner!")
                 console.log("Lets run guessWord and checkIfGameWon" + userChoice, randomPhrase);
+            log.push(userChoice);
             guessedWord();
             checkIfGameWon();
-            } else if (randomPhrase.indexOf(userChoice) === -1) {
+            }else if (log.indexOf(userChoice >=0) && (randomPhrase.indexOf(userChoice) >= 0)) {
+                document.getElementById("message").innerHTML = ("The definition of insanity is try the same thing twice expecting a different result. Try another letter driver");
+            }
+            else {
+                document.getElementById("message").innerHTML = ("Ok that one didn't work,pull your self together, we can still win this.")
                 console.log("Lets run checkIfGameLost" + userChoice, randomPhrase);
             //   mistakes++;
             //   updateMistakes();
+            log.push(userChoice);
             checkIfGameLost();
             //   updateHangmanPicture();
             }
@@ -52,7 +59,7 @@ document.getElementById("submit").addEventListener("click", function (userChoice
         matchLetters();
     
     
-    document.getElementById("used-letters").innerHTML = ("Used Letters: " + log);
+    document.getElementById("used-letters").innerHTML = "Used Letters: " + log.join("");
     console.log("This is the log array", log);
     document.getElementById("user-choice").value = "";
     
@@ -65,7 +72,7 @@ document.getElementById("submit").addEventListener("click", function (userChoice
 
     function checkIfGameWon() {
         if (wordStatus === log) {
-          document.getElementById("already-picked").innerHTML = 'You Won!!!';
+          document.getElementById("message").innerHTML = 'You Won!!!';
         }
       }
 
@@ -79,34 +86,7 @@ document.getElementById("submit").addEventListener("click", function (userChoice
     function guessedWord() {
         wordStatus = randomPhrase.split('').map(letter => (log.indexOf(letter) >= 0 ? letter : " - ")).join('');
         document.getElementById("phrase").innerHTML = wordStatus;
-        // console.log(guessedWord());
       };   
 
 
 });
-
-
-
-
-
-
-    // <---original for loop function--->
-    // for (let i = 0; i < randomPhrase.length; i++) {
-    //     const lettersInPhrase = randomPhrase[i];
-    //     console.log("Letters in the phrase", lettersInPhrase);
-
-    //     if (userChoice === lettersInPhrase) {
-    //         console.log("There's a match");
-    //     } 
-    //     else {
-    //         console.log("NOOOOOOOPE");
-    //     }
-    // }
-
-
-
-
-
-
-
-// getUserChoice();
