@@ -1,6 +1,6 @@
 //global variables
 var phrases = [
-  "GENTLEMAN START YOR ENGINES",
+  "GENTLEMAN START YOUR ENGINES",
   "DOOR BUMPER CLEAR",
   "TOO FAST ENTERING",
   "CHECKERED FLAG",
@@ -13,20 +13,30 @@ var phrases = [
 ];
 
 var log = [" "];
-var usedLetters = [];
 var phraseLog = [];
 var wordStatus = null
 let maxWrong = 6;
 let mistakes = 0;
+var element = document.getElementById("restart");
+
+if(element.style.display === "none"){
+    element.style.display = "block";
+}else{
+    element.style.display = "none";
+}
+function toggle(ID){
+    var element = document.getElementById("restart");
+    if(element.style.display === "none"){
+        element.style.display = "block";
+    }else{
+        element.style.display = "none";
+    }
+}
 
 randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
   console.log("random Phrase", randomPhrase);
 
   document.getElementById("phrase").innerHTML = randomPhrase.replace(/[a-zA-Z]/g, "-");
-
-//   phraseLog.push(randomPhrase);
-//   console.log("PHRASE LOG ARRAY", phraseLog);
-
 
 document.getElementById("submit").addEventListener("click", function (userChoice){
     userChoice = document.getElementById("user-choice").value.toUpperCase();
@@ -34,15 +44,10 @@ document.getElementById("submit").addEventListener("click", function (userChoice
 
     
     function matchLetters() {
-        
-        // (log.indexOf(userChoice) === -1)
-        // document.getElementById("already-picked").innerHTML = "";
-            // log.indexOf(userChoice) === -1 ? log.push(userChoice) : null;
             if (log.indexOf(userChoice) === -1 && (randomPhrase.indexOf(userChoice) >= 0)) {
                 document.getElementById("message").innerHTML = ("That letter there is a winner!")
                 console.log("Lets run guessWord and checkIfGameWon" + userChoice, randomPhrase);
             log.push(userChoice);
-            // usedLetters.push(userChoice);
             guessedWord();
             checkIfGameWon();
             }else if (log.indexOf(userChoice) >=0 && (randomPhrase.indexOf(userChoice) >= 0) || (log.indexOf(userChoice) >=0) && (randomPhrase.indexOf(userChoice) === -1)) {
@@ -51,12 +56,11 @@ document.getElementById("submit").addEventListener("click", function (userChoice
             else {
                 document.getElementById("message").innerHTML = ("Ok that one didn't work,pull your self together, we can still win this.")
                 console.log("Lets run checkIfGameLost" + userChoice, randomPhrase);
-            //   mistakes++;
-            //   updateMistakes();
+              mistakes++;
+              maxWrong--;
             log.push(userChoice);
-            // usedLetters.push(userChoice);
             checkIfGameLost();
-            //   updateHangmanPicture();
+            // updateHangmanPicture();
             }
             
         }
@@ -68,15 +72,18 @@ document.getElementById("submit").addEventListener("click", function (userChoice
     document.getElementById("user-choice").value = "";
 
     function checkIfGameWon() {
-        if (wordStatus === log) {
+        if (wordStatus === randomPhrase) {
           document.getElementById("message").innerHTML = 'You Won!!!';
+          console.log(wordStatus, log);
+          reset();
         }
       }
 
       function checkIfGameLost() {
-        if (mistakes === maxWrong) {
-          document.getElementById("phrase").innerHTML = 'The answer was: ' + answer;
-          document.getElementById('keyboard').innerHTML = 'You Lost!!!';
+        if (maxWrong === 0) {
+          document.getElementById("phrase").innerHTML = 'The answer was: ' + randomPhrase;
+          document.getElementById("message").innerHTML = 'You Lost!!!';
+          reset();
         }
       };
 
@@ -84,7 +91,12 @@ document.getElementById("submit").addEventListener("click", function (userChoice
         wordStatus = randomPhrase.split('').map(letter => (log.indexOf(letter) >= 0 ? letter : " - ")).join('');
         document.getElementById("phrase").innerHTML = wordStatus;
       };   
+      function reset() {
+        toggle();
+      };
 
       
-      
+      document.getElementById("mistakes").innerHTML = ("Total Mistakes: " + mistakes);
+    document.getElementById("maxWrong").innerHTML = ("Mistakes Left: " + maxWrong);
 });
+    
