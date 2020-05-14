@@ -95,6 +95,7 @@ document.getElementById("submit").addEventListener("click", function (userChoice
         wordStatus = randomPhrase.split('').map(letter => (log.indexOf(letter) >= 0 ? letter : " - ")).join('');
         document.getElementById("phrase").innerHTML = wordStatus;
       };   
+      
       function reset() {
         toggle();
       };

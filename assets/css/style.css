@@ -1,6 +1,33 @@
+html {
+    height: 100%;
+}
 body {
-    background-color: rgb(192, 192, 101);
+    background-image: url("../../assets/images/racing-flags-background.jpg");
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-size: contain;
+    background-size: cover;
+    height: 100%;
+}
+
+header {
+    height: 2.5rem;
+    color: tomato;
+    background-color: black;
+}
+h1 {
+    font-size: 2rem;
+    text-align: center;
 }
 #hangImg {
-    height: 250px;
+    height: 175px;
+    margin: auto;
+    justify-content: center;
+    padding-top: 1rem;
+}
+#phrase {
+    background-color: white;
+}
+button {
+    
 }
