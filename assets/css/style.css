@@ -23,11 +23,51 @@ h1 {
     height: 175px;
     margin: auto;
     justify-content: center;
-    padding-top: 1rem;
+    padding-top: .75rem;
 }
 #phrase {
     background-color: white;
+    max-width: fit-content;
+    margin: auto;
+    margin-top: .75rem;
+    font-size: 1.5rem;
+}
+#user-choice {
+    margin: auto;
+    margin-top: 1rem;
 }
 button {
-    
+    color: white;
+    background-color: tomato;
+    margin: auto;
+    margin-top: 1rem;
+    border-radius: .5rem;
+}
+#used-letters {
+    background-color: rgb(0, 0, 0, .7);
+    color: tomato;
+    margin: auto;
+    margin-top: .5rem;
+}
+#mistakes {
+    color: tomato;
+    background-color: rgb(0, 0, 0, .7);
+    /* width: 20%; */
+    margin: auto;
+    font-size: 1.25rem;
+}
+#maxWrong {
+    color: tomato;
+    background-color: rgb(0, 0, 0, .7);
+    /* width: 20%; */
+    margin: auto;
+    margin-top: .5rem;
+    font-size: 1.25rem;
+}
+#message {
+    color: tomato;
+    background-color: rgb(0, 0, 0, .7);
+    margin: auto;
+    margin-top: .5rem;
+    font-size: 1.25rem;
 }
